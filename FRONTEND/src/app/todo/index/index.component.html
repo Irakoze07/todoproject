@@ -1,0 +1,84 @@
+<div class="container">
+
+    <div class="row">
+        <div class="col-sm-12 py-4">
+            <div class="card shadow rounded-5">
+                <div class="card-header">
+
+                </div>
+                <div class="card-body bg-white rounded-bottom">
+                    <div class="row">
+                        <div class="col-sm-3">
+
+                        </div>
+                        <div class="col-sm-6">
+                            <form [formGroup]="form" (ngSubmit)="submit()" id="for" class=" shadow row g-2 border border-light rounded-3">
+                                <div style="margin-left: 8px;">
+                                    <label for="todo" class="form-label">New Todo:</label>
+                                </div>
+                                <div class="col-auto mb-3" id="form">
+                                    <input formControlName="topic" id="topic" type="text" class="form-control" style="width: 330px;">
+                                </div>
+                                <div id="forms" class="col-auto">
+                                    <button id="buttons" type="submit" class="btn btn-primary" (click)="reloadCurrentPage()"><b>Add</b></button>
+
+                                </div>
+                            </form>
+
+                            <ul id="list" class="list-group" style="width: 450px;">
+                                <form [formGroup]="updateForm" (ngSubmit)="update()" id="">
+                                    <li class="row clearfix list-group-item d-flex justify-content-between align-items-center">
+                                        <div class="row">
+                                            <label for="inputPassword" class="col-sm-2 col-form-label">Edit:</label>
+                                            <div class="col-sm-8">
+                                                <input type="hidden" #topic_id formControlName="topic_id" class="form-control mt-1">
+                                                <input type="text" #topic formControlName="topic" class="form-control mt-1" style="margin-left: -25px; width: 280px; " placeholder="Mow the lawn">
+                                            </div>
+                                            <button id="button" type="submit" class="col-sm-2 btn btn-light mt-1"><b>Save</b></button>
+                                        </div>
+                                    </li>
+                                </form>
+                                <div *ngFor="let todo of todos">
+                                    <li class="row clearfix list-group-item d-flex justify-content-between align-items-center">
+                                        <div class=" col-9 float-start">
+                                            <input class="form-check-input me-1" type="checkbox" value="" aria-label="..."> {{ todo.topic }}
+                                        </div>
+                                        <div class=" col-3 float-end" id="icons">
+                                            <button type="button" (click)="setValue(todo.id,todo.topic)" class="btn"><i class="bi bi-pencil-fill"></i></button>
+                                            <button type="button" (click)="deletePost(todo.id)" class="btn"><i class="bi bi-trash3"></i></button>
+                                        </div>
+                                    </li>
+                                </div>
+                                <!-- <li
+                                    class="row clearfix list-group-item d-flex justify-content-between align-items-center">
+                                    <div class=" col-9 float-start">
+                                        <input class="form-check-input me-1" type="checkbox" value="" aria-label="...">
+                                        A list item
+                                    </div>
+                                    <div class=" col-3 float-end" id="icons">
+                                        <button class="btn"><i class="bi bi-pencil-fill"></i></button>
+                                        <button class="btn"><i class="bi bi-trash3"></i></button>
+                                    </div>
+                                </li>
+                                <li
+                                    class="row clearfix list-group-item d-flex justify-content-between align-items-center">
+                                    <div class=" col-9 float-start">
+                                        <input class="form-check-input me-1" type="checkbox" value="" aria-label="...">
+                                        A list item
+                                    </div>
+                                    <div class=" col-3 float-end" id="icons">
+                                        <button class="btn"><i class="bi bi-pencil-fill"></i></button>
+                                        <button class="btn"><i class="bi bi-trash3"></i></button>
+                                    </div>
+                                </li> -->
+                            </ul>
+                        </div>
+                        <div class="col-sm-3">
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
